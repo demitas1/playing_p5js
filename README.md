@@ -9,8 +9,17 @@ npm run start
 
 ## build
 
+- build
+
 ```
 npm run build
+```
+
+- run
+
+```
+cd dist
+http-server
 ```
 
 ## Copyright
