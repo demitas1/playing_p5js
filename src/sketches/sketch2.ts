@@ -13,10 +13,5 @@ export const sketch2 = (p: p5) => {
 };
 
 
-export const sketch2Thumbnail = (p: p5) => {
-  p.setup = () => {
-    p.createCanvas(100, 100);
-    p.background(200);
-    p.rect(25, 25, 50, 50);
-  };
-};
+// thumbnail provided by pre-rendered image
+export const sketch2Thumbnail = 'sketch2.png';

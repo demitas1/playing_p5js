@@ -4,24 +4,41 @@ import { sketch2, sketch2Thumbnail } from './sketches/sketch2';
 import { sketch3, sketch3Thumbnail } from './sketches/sketch3';
 import { sketch4, sketch4Thumbnail } from './sketches/sketch4';
 
-const sketches = [
+interface SketchInfo {
+  sketch: (p: p5) => void;
+  thumbnail: ((p: p5) => void) | string;
+  description: string;
+}
+
+const sketches: SketchInfo[] = [
   { sketch: sketch1, thumbnail: sketch1Thumbnail, description: "Circular sketch" },
   { sketch: sketch2, thumbnail: sketch2Thumbnail, description: "Rectangular sketch" },
-  { sketch: sketch3, thumbnail: sketch3Thumbnail, description: "Bouncing ball animation" },
-  { sketch: sketch4, thumbnail: sketch4Thumbnail, description: "WIP" },
+  { sketch: sketch3, thumbnail: sketch3Thumbnail, description: "Bouncing ball" },
+  { sketch: sketch4, thumbnail: sketch4Thumbnail, description: "Particle system" },
 ];
 
 let currentSketch: p5 | null = null;
 
-function createThumbnail(sketch: (p: p5) => void, description: string): HTMLDivElement {
+function createThumbnail(thumbnailData: ((p: p5) => void) | string, description: string): HTMLDivElement {
   const container = document.createElement('div');
   container.className = 'sketch-thumbnail';
-
-  new p5(sketch, container);
 
   const desc = document.createElement('p');
   desc.textContent = description;
   container.appendChild(desc);
+
+  if (typeof thumbnailData === 'string') {
+    // If thumbnailData is a string, assume it's an image file name
+    const img = document.createElement('img');
+    img.src = thumbnailData;
+    img.alt = description;
+    img.width = 100;
+    img.height = 100;
+    container.appendChild(img);
+  } else {
+    // If thumbnailData is a function, create a p5 instance
+    new p5(thumbnailData, container);
+  }
 
   return container;
 }
