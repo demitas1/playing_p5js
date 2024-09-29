@@ -3,6 +3,7 @@ import { sketch1, sketch1Thumbnail } from './sketches/sketch1';
 import { sketch2, sketch2Thumbnail } from './sketches/sketch2';
 import { sketch3, sketch3Thumbnail } from './sketches/sketch3';
 import { sketch4, sketch4Thumbnail } from './sketches/sketch4';
+import { sketch5, sketch5Thumbnail } from './sketches/sketch5';
 
 interface SketchInfo {
   sketch: (p: p5) => void;
@@ -15,6 +16,7 @@ const sketches: SketchInfo[] = [
   { sketch: sketch2, thumbnail: sketch2Thumbnail, description: "Rectangular sketch" },
   { sketch: sketch3, thumbnail: sketch3Thumbnail, description: "Bouncing ball" },
   { sketch: sketch4, thumbnail: sketch4Thumbnail, description: "Particle system" },
+  { sketch: sketch5, thumbnail: sketch5Thumbnail, description: "Particle system" },
 ];
 
 let currentSketch: p5 | null = null;
