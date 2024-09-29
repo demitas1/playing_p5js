@@ -16,7 +16,7 @@ const sketches: SketchInfo[] = [
   { sketch: sketch2, thumbnail: sketch2Thumbnail, description: "Rectangular sketch" },
   { sketch: sketch3, thumbnail: sketch3Thumbnail, description: "Bouncing ball" },
   { sketch: sketch4, thumbnail: sketch4Thumbnail, description: "Particle system" },
-  { sketch: sketch5, thumbnail: sketch5Thumbnail, description: "Particle system" },
+  { sketch: sketch5, thumbnail: sketch5Thumbnail, description: "Particle: Fire ball" },
 ];
 
 let currentSketch: p5 | null = null;
